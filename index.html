@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advanced Alpha Power | Electromechanical &amp; Industrial Manufacturing</title>
+<meta name="description" content="Advanced Alpha Power (AAP) — cable tray systems, low voltage panels, industrial racking and full electromechanical contracting across Egypt and Saudi Arabia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23161A22'/%3E%3Cpath d='M20 78 L45 22 L55 22 L62 45 L72 22 L82 22 L57 78 L47 78 L40 55 L30 78 Z' fill='%23E85D2C'/%3E%3C/svg%3E">
+<style>
+
+/* ============================= */
+/* 0. TOKENS                      */
+/* ============================= */
+:root{
+  --charcoal:#14171F;
+  --charcoal-2:#1C212C;
+  --steel:#4B5568;
+  --steel-light:#8A93A3;
+  --paper:#F7F4EF;
+  --paper-dim:#EDE8DF;
+  --white:#FFFFFF;
+  --red:#C31E2A;
+  --red-deep:#8F1420;
+  --orange:#E85D2C;
+  --amber:#F2A03D;
+  --line: rgba(20,23,31,0.12);
+  --line-dark: rgba(255,255,255,0.10);
+
+  --font-display:'Oswald', sans-serif;
+  --font-body:'Work Sans', sans-serif;
+
+  --container: 1180px;
+  --radius: 4px;
+
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:88px;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--charcoal);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:600;
+  line-height:1.08;
+  margin:0;
+  letter-spacing:0.2px;
+}
+p{margin:0;}
+ul{margin:0; padding:0; list-style:none;}
+button{font-family:inherit; cursor:pointer;}
+.container{max-width:var(--container); margin:0 auto; padding:0 28px;}
+.hide-scrollbar::-webkit-scrollbar{display:none;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+::selection{background:var(--orange); color:var(--white);}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:3px;
+}
+
+/* ============================= */
+/* 1. NAVIGATION                  */
+/* ============================= */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:rgba(20,23,31,0.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line-dark);
+  padding-top:env(safe-area-inset-top, 0px);
+}
+.nav-inner{
+  max-width:var(--container); margin:0 auto; padding:0 28px;
+  height:76px; display:flex; align-items:center; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px; color:var(--white);}
+.brand-mark{
+  width:34px; height:34px; flex:none;
+  background:linear-gradient(135deg, var(--orange), var(--red));
+  border-radius:6px; position:relative;
+}
+.brand-mark::after{
+  content:"A"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; color:var(--white); font-size:18px;
+}
+.brand-text{display:flex; flex-direction:column; line-height:1.05;}
+.brand-text strong{font-family:var(--font-display); font-size:16px; letter-spacing:0.5px;}
+.brand-text span{font-size:10px; color:var(--steel-light); letter-spacing:1.5px;}
+
+.nav-links{display:flex; gap:34px; align-items:center;}
+.nav-links a{
+  color:#D7DAE1; font-size:14.5px; font-weight:500; position:relative; padding:6px 0;
+  transition:color .2s ease;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:2px;
+  background:var(--orange); transition:width .25s ease;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-cta{
+  background:var(--red); color:var(--white); padding:10px 20px; border-radius:3px;
+  font-size:14px; font-weight:600; border:1px solid var(--red);
+  transition:background .2s ease, transform .15s ease;
+}
+.nav-cta:hover{background:var(--orange); border-color:var(--orange); transform:translateY(-1px);}
+
+.nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
+.nav-toggle span{width:24px; height:2px; background:var(--white); display:block;}
+
+/* ============================= */
+/* 2. HERO                        */
+/* ============================= */
+.hero{
+  position:relative;
+  min-height:92vh;
+  background:var(--charcoal);
+  color:var(--white);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:150px 0 90px;
+}
+.hero::before{
+  content:"";
+  position:absolute; top:0; right:0; bottom:0;
+  width:46%;
+  background:
+    linear-gradient(160deg, var(--red) 0%, var(--red-deep) 55%, var(--charcoal-2) 100%);
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 34px);
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative; z-index:2;
+  max-width:var(--container); margin:0 auto; padding:0 28px;
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:end;
+  width:100%;
+}
+.hero-eyebrow{
+  display:flex; align-items:center; gap:10px;
+  color:var(--amber); font-size:13.5px; font-weight:600; letter-spacing:0.4px;
+  margin-bottom:22px;
+  opacity:0; animation: rise .7s ease forwards;
+}
+.hero-eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--amber);}
+.hero h1{
+  font-size:clamp(38px, 5.4vw, 68px);
+  color:var(--white);
+  max-width:12.5ch;
+  opacity:0; animation: rise .8s ease .08s forwards;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg, var(--amber), var(--orange));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero-sub{
+  margin-top:26px; color:#C7CBD4; font-size:17px; max-width:52ch;
+  opacity:0; animation: rise .8s ease .18s forwards;
+}
+.hero-actions{
+  margin-top:38px; display:flex; gap:16px; flex-wrap:wrap;
+  opacity:0; animation: rise .8s ease .28s forwards;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 26px; font-size:14.5px; font-weight:600; letter-spacing:0.3px;
+  border-radius:3px; border:1px solid transparent; transition:transform .18s ease, background .2s ease, border-color .2s ease;
+}
+.btn-primary{background:var(--orange); color:var(--white);}
+.btn-primary:hover{background:#D6531F; transform:translateY(-2px);}
+.btn-ghost{border-color:rgba(255,255,255,0.35); color:var(--white);}
+.btn-ghost:hover{border-color:var(--white); transform:translateY(-2px);}
+.btn-dark{background:var(--charcoal); color:var(--white);}
+.btn-dark:hover{background:var(--red-deep); transform:translateY(-2px);}
+
+.hero-panel{
+  position:relative; z-index:2;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:6px;
+  padding:30px 26px;
+  backdrop-filter:blur(4px);
+  opacity:0; animation: rise .8s ease .4s forwards;
+}
+.hero-panel-title{font-size:12.5px; letter-spacing:1px; color:var(--amber); font-weight:600; margin-bottom:18px;}
+.hero-stats{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+.hero-stat b{
+  display:block; font-family:var(--font-display); font-size:32px; color:var(--white); font-weight:700;
+}
+.hero-stat span{font-size:12.5px; color:#B7BCC8;}
+.hero-stat{padding-top:14px; border-top:1px solid rgba(255,255,255,0.16);}
+
+@keyframes rise{
+  from{opacity:0; transform:translateY(18px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ============================= */
+/* 3. SECTION SHELL                */
+/* ============================= */
+section{padding:110px 0;}
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:30px;
+  margin-bottom:56px; flex-wrap:wrap;
+}
+.kicker{
+  font-size:13px; font-weight:600; letter-spacing:0.5px; color:var(--red);
+  display:flex; align-items:center; gap:9px; margin-bottom:14px;
+}
+.kicker::before{content:""; width:26px; height:2px; background:var(--red); display:block;}
+.section-head h2{font-size:clamp(28px, 3.4vw, 42px); max-width:16ch; color:var(--charcoal);}
+.section-head p{max-width:44ch; color:var(--steel); font-size:15.5px;}
+
+.section-alt{background:var(--white);}
+.section-dark{background:var(--charcoal); color:var(--white);}
+.section-dark .kicker{color:var(--amber);}
+.section-dark .kicker::before{background:var(--amber);}
+.section-dark .section-head h2{color:var(--white);}
+.section-dark .section-head p{color:#AEB4C0;}
+
+/* ============================= */
+/* 4. ABOUT                       */
+/* ============================= */
+.about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+.about-lede{font-size:21px; font-family:var(--font-display); font-weight:500; color:var(--charcoal); line-height:1.4;}
+.divisions{display:grid; gap:18px; margin-top:34px;}
+.division{
+  border:1px solid var(--line); border-radius:6px; padding:22px 24px;
+  background:var(--white);
+  border-left:3px solid var(--orange);
+}
+.division h4{font-size:16.5px; margin-bottom:8px; color:var(--charcoal);}
+.division p{font-size:14.5px; color:var(--steel);}
+.division.red{border-left-color:var(--red);}
+
+.about-facts{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+.fact{background:var(--white); padding:26px 22px;}
+.fact b{display:block; font-family:var(--font-display); font-size:30px; color:var(--red);}
+.fact span{font-size:13px; color:var(--steel);}
+
+/* ============================= */
+/* 5. TABS / SERVICES              */
+/* ============================= */
+.tabbar{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px;}
+.tabbtn{
+  padding:11px 20px; border-radius:30px; border:1px solid var(--line);
+  background:var(--white); font-size:14px; font-weight:600; color:var(--steel);
+  transition:all .2s ease;
+}
+.tabbtn.active{background:var(--charcoal); color:var(--white); border-color:var(--charcoal);}
+.tabbtn:not(.active):hover{border-color:var(--orange); color:var(--orange);}
+
+.tabpanel{display:none;}
+.tabpanel.active{display:block; animation:fadein .35s ease;}
+@keyframes fadein{from{opacity:0;} to{opacity:1;}}
+
+.service-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+.service-card{
+  background:var(--white); padding:32px 26px; position:relative; transition:background .2s ease;
+}
+.service-card:hover{background:#FCF8F4;}
+.service-icon{
+  width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, var(--orange), var(--red)); margin-bottom:20px;
+}
+.service-icon svg{width:22px; height:22px; stroke:var(--white); fill:none; stroke-width:1.8;}
+.service-card h4{font-size:17px; margin-bottom:10px; color:var(--charcoal);}
+.service-card p{font-size:14px; color:var(--steel);}
+
+/* ============================= */
+/* 6. PRODUCTS STRIP                */
+/* ============================= */
+.product-strip{
+  display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+}
+.product-cell{
+  padding:30px 22px; border-right:1px solid var(--line); background:var(--white);
+}
+.product-cell:last-child{border-right:none;}
+.product-cell .tag{
+  display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.6px; color:var(--white);
+  background:var(--red); padding:4px 9px; border-radius:20px; margin-bottom:14px;
+}
+.product-cell h4{font-size:16px; margin-bottom:8px;}
+.product-cell p{font-size:13.5px; color:var(--steel);}
+
+/* ============================= */
+/* 7. SECTORS                     */
+/* ============================= */
+.sector-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
+.sector-card{
+  border:1px solid var(--line-dark); border-radius:6px; padding:24px 20px;
+  background:var(--charcoal-2);
+  transition:border-color .2s ease, transform .2s ease;
+}
+.sector-card:hover{border-color:var(--orange); transform:translateY(-3px);}
+.sector-card svg{width:26px; height:26px; stroke:var(--amber); fill:none; stroke-width:1.6; margin-bottom:16px;}
+.sector-card h4{font-size:15px; color:var(--white); font-weight:500;}
+
+/* ============================= */
+/* 8. WHY CHOOSE US                */
+/* ============================= */
+.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+.why-list{display:grid; gap:22px;}
+.why-item{display:flex; gap:16px;}
+.why-num{
+  font-family:var(--font-display); font-size:14px; color:var(--white); background:var(--red);
+  width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  flex:none; margin-top:2px;
+}
+.why-item h4{font-size:16px; margin-bottom:5px;}
+.why-item p{font-size:14px; color:var(--steel);}
+.why-visual{
+  border-radius:8px; overflow:hidden; position:relative; aspect-ratio:4/5;
+  background:linear-gradient(160deg, var(--red), var(--red-deep) 60%, var(--charcoal) 130%);
+  display:flex; align-items:flex-end; padding:30px;
+}
+.why-visual .badge{
+  background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.3); backdrop-filter:blur(4px);
+  color:var(--white); padding:20px; border-radius:6px; width:100%;
+}
+.why-visual .badge b{display:block; font-family:var(--font-display); font-size:26px;}
+.why-visual .badge span{font-size:13px; color:#F1E4DD;}
+
+/* ============================= */
+/* 9. CLIENTS                     */
+/* ============================= */
+.clients-marquee{
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  padding:36px 0; overflow:hidden; position:relative;
+}
+.clients-track{display:flex; gap:60px; width:max-content; animation:scroll 32s linear infinite;}
+.clients-track span{
+  font-family:var(--font-display); font-size:18px; color:var(--steel-light); letter-spacing:0.5px;
+  white-space:nowrap;
+}
+.clients-marquee:hover .clients-track{animation-play-state:paused;}
+@keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+/* ============================= */
+/* 10. CONTACT                     */
+/* ============================= */
+.contact{background:var(--charcoal); color:var(--white); position:relative; overflow:hidden;}
+.contact::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:linear-gradient(180deg, var(--orange), var(--red));
+}
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
+.office-cards{display:grid; gap:18px;}
+.office-card{
+  border:1px solid var(--line-dark); border-radius:8px; padding:26px;
+  background:var(--charcoal-2);
+}
+.office-card .loc-tag{
+  display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:0.6px;
+  color:var(--amber); margin-bottom:14px;
+}
+.office-card h4{font-size:19px; margin-bottom:12px;}
+.office-line{display:flex; gap:12px; font-size:14.5px; color:#C7CBD4; padding:6px 0;}
+.office-line svg{width:17px; height:17px; stroke:var(--orange); fill:none; stroke-width:1.8; flex:none; margin-top:2px;}
+
+.form-card{background:var(--white); color:var(--charcoal); border-radius:8px; padding:34px;}
+.form-card h3{font-size:22px; margin-bottom:6px;}
+.form-card > p{color:var(--steel); font-size:14px; margin-bottom:26px;}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+.field{display:flex; flex-direction:column; gap:7px;}
+.field label{font-size:12.5px; font-weight:600; color:var(--steel);}
+.field input, .field select, .field textarea{
+  border:1px solid var(--line); border-radius:4px; padding:12px 14px; font-family:inherit; font-size:14.5px;
+  background:var(--paper); color:var(--charcoal); resize:vertical;
+}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--orange);}
+.form-submit{
+  width:100%; margin-top:6px; background:var(--red); color:var(--white); border:none;
+  padding:15px; border-radius:4px; font-weight:600; font-size:15px; transition:background .2s ease;
+}
+.form-submit:hover{background:var(--orange);}
+.form-note{font-size:12.5px; color:var(--steel-light); margin-top:12px;}
+
+/* ============================= */
+/* 11. FOOTER                      */
+/* ============================= */
+footer{background:var(--charcoal-2); color:#B7BCC8; padding:60px 0 0;}
+.footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--line-dark);}
+.footer-brand p{font-size:14px; margin-top:16px; max-width:34ch; color:#9BA1AE;}
+.footer-col h5{font-size:13px; letter-spacing:0.5px; color:var(--white); margin-bottom:18px; font-weight:600;}
+.footer-col ul{display:grid; gap:11px;}
+.footer-col a{font-size:14px; color:#9BA1AE; transition:color .2s ease;}
+.footer-col a:hover{color:var(--orange);}
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; padding:22px 0; flex-wrap:wrap; gap:10px;
+  font-size:13px; color:#7C8493;
+}
+.footer-bottom .credit{color:#B7BCC8;}
+.footer-bottom .credit b{color:var(--orange); font-weight:600;}
+.footer-social{display:flex; gap:12px;}
+.footer-social a{
+  width:34px; height:34px; border:1px solid var(--line-dark); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; transition:border-color .2s ease, color .2s ease;
+}
+.footer-social a:hover{border-color:var(--orange); color:var(--orange);}
+.footer-social svg{width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8;}
+
+/* ============================= */
+/* 12. CHAT WIDGET                 */
+/* ============================= */
+.chat-toggle{
+  position:fixed; right:26px; bottom:26px; z-index:600;
+  width:60px; height:60px; border-radius:50%; border:none;
+  background:linear-gradient(135deg, var(--orange), var(--red));
+  box-shadow:0 10px 26px rgba(195,30,42,0.4);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .2s ease;
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+.chat-toggle:hover{transform:scale(1.06);}
+.chat-toggle svg{width:24px; height:24px; stroke:var(--white); fill:none; stroke-width:1.8;}
+.chat-toggle .ping{
+  position:absolute; top:-3px; right:-3px; width:14px; height:14px; border-radius:50%;
+  background:var(--amber); border:2px solid var(--charcoal);
+}
+
+.chat-panel{
+  position:fixed; right:26px; bottom:98px; z-index:600;
+  width:360px; max-width:calc(100vw - 40px); max-height:70vh;
+  background:var(--white); border-radius:10px; overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.28);
+  display:flex; flex-direction:column;
+  transform:translateY(16px) scale(0.97); opacity:0; pointer-events:none;
+  transition:all .22s ease;
+  border:1px solid var(--line);
+}
+.chat-panel.open{transform:translateY(0) scale(1); opacity:1; pointer-events:auto;}
+.chat-head{
+  background:var(--charcoal); color:var(--white); padding:18px 20px;
+  display:flex; align-items:center; gap:12px;
+}
+.chat-head .dot{width:9px; height:9px; border-radius:50%; background:#3ADB76;}
+.chat-head strong{font-size:14.5px; display:block;}
+.chat-head span{font-size:12px; color:#AEB4C0;}
+.chat-close{margin-left:auto; background:none; border:none; color:#AEB4C0; font-size:20px; line-height:1;}
+.chat-close:hover{color:var(--white);}
+
+.chat-body{
+  flex:1; overflow-y:auto; padding:18px 16px; display:flex; flex-direction:column; gap:12px; background:var(--paper);
+}
+.msg{max-width:84%; padding:11px 14px; border-radius:12px; font-size:13.8px; line-height:1.45;}
+.msg.bot{background:var(--white); border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:2px;}
+.msg.user{background:var(--red); color:var(--white); align-self:flex-end; border-bottom-right-radius:2px;}
+.chat-quick{display:flex; flex-wrap:wrap; gap:8px; padding:0 16px 12px;}
+.chip{
+  font-size:12px; padding:7px 12px; border-radius:20px; border:1px solid var(--line); background:var(--white); color:var(--steel);
+}
+.chip:hover{border-color:var(--orange); color:var(--orange);}
+.chat-input-row{
+  display:flex; gap:8px; padding:14px; border-top:1px solid var(--line); background:var(--white);
+}
+.chat-input-row input{
+  flex:1; border:1px solid var(--line); border-radius:20px; padding:11px 16px; font-family:inherit; font-size:13.8px;
+}
+.chat-input-row input:focus{border-color:var(--orange);}
+.chat-send{
+  width:40px; height:40px; border-radius:50%; border:none; background:var(--red); flex:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.chat-send:hover{background:var(--orange);}
+.chat-send svg{width:17px; height:17px; stroke:var(--white); fill:none; stroke-width:2;}
+
+/* ============================= */
+/* 13. RESPONSIVE                  */
+/* ============================= */
+@media (max-width: 980px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero::before{width:100%; clip-path:polygon(0 78%, 100% 55%, 100% 100%, 0 100%); opacity:0.9;}
+  .hero-panel{margin-top:10px;}
+  .about-grid, .why-grid, .contact-grid{grid-template-columns:1fr; gap:40px;}
+  .service-grid{grid-template-columns:repeat(2,1fr);}
+  .product-strip{grid-template-columns:repeat(2,1fr);}
+  .product-cell:nth-child(2){border-right:none;}
+  .sector-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width: 720px){
+  .nav-links{
+    position:fixed; top:76px; left:0; right:0; background:var(--charcoal);
+    flex-direction:column; align-items:flex-start; gap:0; padding:10px 28px 20px;
+    transform:translateY(-8px); opacity:0; pointer-events:none; transition:all .2s ease;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-links.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+  .nav-links a{padding:13px 0; width:100%; border-bottom:1px solid var(--line-dark);}
+  .nav-cta{display:none;}
+  .nav-toggle{display:flex;}
+  .hero{padding:140px 0 70px;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .service-grid, .product-strip, .sector-grid{grid-template-columns:1fr;}
+  .product-cell{border-right:none; border-bottom:1px solid var(--line);}
+  .form-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr; gap:30px;}
+  .chat-panel{right:14px; left:14px; width:auto; bottom:92px;}
+  .chat-toggle{right:18px; bottom:18px;}
+  section{padding:76px 0;}
+  .about-facts{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= -->
+<!-- NAV                            -->
+<!-- ============================= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text"><strong>ADVANCED ALPHA</strong><span>POWER &amp; FACTORY</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Request a Quote</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============================= -->
+<!-- HERO                           -->
+<!-- ============================= -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> ELECTROMECHANICAL MANUFACTURING &amp; CONTRACTING</div>
+      <h1>We build the <em>power infrastructure</em> your project stands on.</h1>
+      <p class="hero-sub">Advanced Alpha Power designs and manufactures cable tray systems, low voltage panels and industrial steelwork in Egypt, and delivers full electromechanical contracting — HVAC, electrical, fire fighting and plumbing — across Saudi Arabia.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Talk to our engineers</a>
+        <a href="#services" class="btn btn-ghost">Explore capabilities</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-title">AT A GLANCE</div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>2020</b><span>Factory established, Borg El Arab</span></div>
+        <div class="hero-stat"><b>2</b><span>Countries — Egypt &amp; Saudi Arabia</span></div>
+        <div class="hero-stat"><b>IEC 61537</b><span>Cable tray manufacturing standard</span></div>
+        <div class="hero-stat"><b>70KA</b><span>Short circuit rating, LV panels</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= -->
+<!-- ABOUT                          -->
+<!-- ============================= -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">WHO WE ARE</div>
+        <h2>One group, two specialist divisions</h2>
+      </div>
+      <p>From raw sheet metal to a fully commissioned switchboard, AAP controls the process end to end — so what we design is exactly what gets installed.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-lede">"Our customer is our future — it is our best interest to provide the level of product and service quality that helps ensure both our future and theirs."</p>
+        <div class="divisions">
+          <div class="division">
+            <h4>Advanced Alpha Factory — Egypt</h4>
+            <p>Established 2020 in Borg El Arab, Alexandria. Sheet-metal precision manufacturing of cable tray &amp; ladder systems, low voltage panels, industrial racking, fire-rated doors and fire hose cabinets, built on JFY and Umiya machine lines.</p>
+          </div>
+          <div class="division red">
+            <h4>Advanced Alpha Power — Saudi Arabia</h4>
+            <p>Trading and contracting arm based in Dammam, delivering design, supply, installation, testing, commissioning and maintenance of HVAC, electrical, fire fighting, plumbing and low current systems.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-facts">
+        <div class="fact"><b>3</b><span>Cable tray types — ladder, perforated, duct</span></div>
+        <div class="fact"><b>1–2mm</b><span>Sheet gauges, light to heavy loads</span></div>
+        <div class="fact"><b>ABB /<br>Schneider</b><span>Partner brands for LV panels</span></div>
+        <div class="fact"><b>120 min</b><span>Fire rating on emergency doors</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- SERVICES (TABBED)              -->
+<!-- ============================= -->
+<section id="services" class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">WHAT WE DO</div>
+        <h2>Manufacturing and contracting, under one roof</h2>
+      </div>
+      <p>Switch between our two divisions to see the scope each one covers.</p>
+    </div>
+
+    <div class="tabbar">
+      <button class="tabbtn active" data-tab="manufacturing">Factory — Manufacturing</button>
+      <button class="tabbtn" data-tab="contracting">KSA — Contracting Services</button>
+    </div>
+
+    <div class="tabpanel active" id="manufacturing">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
+          <h4>Cable Tray Systems</h4>
+          <p>Ladder, perforated and duct-type trays manufactured to IEC 61537, in aluminium, steel and stainless steel, with a full range of tees, crosses, elbows and risers.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+          <h4>Low Voltage Panels</h4>
+          <p>FT floor-standing, FW wall-mounted and FF flush-mounted distribution boards, rated up to 4000A with a 70KA short-circuit withstand, IP54.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-6h6v6"/></svg></div>
+          <h4>Heavy-Duty Racking</h4>
+          <p>2m–6m upright frames, pallet rack beams and mesh storage shelving for warehousing and industrial storage &amp; display.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h4"/></svg></div>
+          <h4>Fire-Rated Emergency Doors</h4>
+          <p>120-minute fire withstand, water and sound insulated, TSE certified, with anti-rust hinges and a rock-wool/ceramic-wool core.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="1"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+          <h4>Fire Hose &amp; Extinguisher Cabinets</h4>
+          <p>Mild steel and 316 stainless-steel cabinets, single or double, surface or recess-mounted, right- or left-hand opening.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 6l5 5-5 5M14 6l5 5-5 5" /></svg></div>
+          <h4>Cable Management</h4>
+          <p>Nylon cable ties from 2.5×10 to 7.6×50mm, plus channel, hangers and construction accessories for onsite tray installation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" id="contracting">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 015 5c0 4-5 9-5 9s-5-5-5-9a5 5 0 015-5z"/><circle cx="12" cy="8" r="1.6"/></svg></div>
+          <h4>HVAC Systems</h4>
+          <p>Chilled water systems, VRF, package units and ventilation — design, installation and commissioning.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 11-14h-8z"/></svg></div>
+          <h4>Electrical Systems</h4>
+          <p>MV &amp; LV distribution, lighting, cable management, power distribution, earthing and lightning protection.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2c3 4 6 7 6 11a6 6 0 01-12 0c0-4 3-7 6-11z"/></svg></div>
+          <h4>Fire Fighting &amp; Alarm</h4>
+          <p>Sprinkler systems, fire pumps and fire alarm systems engineered to protect people and assets.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 12a4 4 0 014-4h8a4 4 0 014 4M4 12a4 4 0 004 4h8a4 4 0 004-4"/></svg></div>
+          <h4>Plumbing Systems</h4>
+          <p>Water supply, drainage and sewage systems for commercial, residential and industrial buildings.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h4>Low Current Systems</h4>
+          <p>CCTV, access control, public address, structured cabling, telephone and intercom systems.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12M9 21v-7h6v7"/></svg></div>
+          <h4>Construction Works</h4>
+          <p>Civil, structural and finishing works delivered alongside our MEP scope for a single point of accountability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- PRODUCTS STRIP                 -->
+<!-- ============================= -->
+<section id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">CABLE TRAY RANGE</div>
+        <h2>Three tray types, one catalog system</h2>
+      </div>
+      <p>Every part is identified by a structured catalog code — type, dimensions, thickness, material and finish — for fast, unambiguous ordering.</p>
+    </div>
+    <div class="product-strip">
+      <div class="product-cell">
+        <span class="tag">LADDER</span>
+        <h4>Ladder Type Tray</h4>
+        <p>Two side rails with welded or bolted rungs at 300mm spacing — maximum ventilation for heat-producing power cables.</p>
+      </div>
+      <div class="product-cell">
+        <span class="tag">PERFORATED</span>
+        <h4>Perforated Tray</h4>
+        <p>Single perforated sheet offering protection from external damage with partial ventilation.</p>
+      </div>
+      <div class="product-cell">
+        <span class="tag">DUCT</span>
+        <h4>Duct-Bottom Tray</h4>
+        <p>Fully enclosed solid tray for instrumentation, control and communication cabling.</p>
+      </div>
+      <div class="product-cell">
+        <span class="tag">LV PANELS</span>
+        <h4>Switchboards</h4>
+        <p>FT, FW and FF ranges — from 12-module consumer units to 4000A floor-standing switchboards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- SECTORS                        -->
+<!-- ============================= -->
+<section id="sectors" class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">WHERE WE WORK</div>
+        <h2>Built for every kind of facility</h2>
+      </div>
+      <p>The same engineering discipline, applied across every sector we serve.</p>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-card"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18"/><path d="M8 7h1M12 7h1M16 7h1M8 11h1M12 11h1M16 11h1M8 15h1M12 15h1M16 15h1"/></svg><h4>Commercial Buildings</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><h4>Residential Projects</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M12 8v8M8 12h8"/></svg><h4>Hospitals</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 21v-5h6v5"/></svg><h4>Hotels</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><path d="M4 20V6l8-3 8 3v14M4 20h16"/></svg><h4>Educational Facilities</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l6-4 6 4v12"/></svg><h4>Industrial Projects</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><path d="M3 21V9l4-4h10l4 4v12H3z"/></svg><h4>Warehouses</h4></div>
+      <div class="sector-card"><svg viewBox="0 0 24 24"><path d="M4 21V11l5-3 5 3v10M14 21v-6l6-3v9"/></svg><h4>Factories</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- WHY CHOOSE US                  -->
+<!-- ============================= -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">WHY AAP</div>
+        <h2>Engineering that answers for itself</h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div><h4>Qualified engineers &amp; technicians</h4><p>Every stage from design to commissioning is run by trained, experienced specialists.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div><h4>International standards</h4><p>Cable trays to IEC 61537, panels partnered with Schneider Electric and ABB.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div><h4>Competitive, value-engineered pricing</h4><p>In-house manufacturing keeps quality high and lead times short without inflating cost.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">4</div>
+          <div><h4>Strong HSE culture</h4><p>Safety and quality assurance are built into every site and shop-floor process.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">5</div>
+          <div><h4>On-time project delivery</h4><p>Professional project management keeps every phase — supply through maintenance — on schedule.</p></div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="badge">
+          <b>Electronically linked</b>
+          <span>from the engineering stage to final quality inspection, prior to shipment — so what we design is what gets built.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- CLIENTS                        -->
+<!-- ============================= -->
+<section id="clients" style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">TRUSTED BY</div>
+        <h2>Clients &amp; consultants we've worked with</h2>
+      </div>
+    </div>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-track" id="clientsTrack">
+      <span>WEPCO</span><span>Parkville Pharmaceuticals</span><span>Techno Pharmaceuticals</span><span>Tetco</span>
+      <span>Amaken Real Estate</span><span>El Ghonemy</span><span>Pharma Egypt</span><span>Man Crew</span>
+      <span>Total Air</span><span>Almajal Alarabi</span><span>Al Tarek</span><span>Cairo Air Trading</span>
+      <span>Uni-Tech</span><span>SeAH GSI</span><span>DUSSUR</span><span>Assystem</span>
+      <span>Solitaire Construction</span><span>Sendan</span><span>ACCC</span><span>EESCO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- CONTACT                        -->
+<!-- ============================= -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">GET IN TOUCH</div>
+        <h2>Let's scope your project</h2>
+      </div>
+      <p>Reach us directly, or send the details below and an AAP engineer will follow up.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="office-cards">
+        <div class="office-card">
+          <div class="loc-tag">🇪🇬 EGYPT — FACTORY</div>
+          <h4>Advanced Alpha Factory</h4>
+          <div class="office-line"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>Part 15, Block 33, Fourth Industrial Zone, Borg El Arab, Alexandria, Egypt</span></div>
+          <div class="office-line"><svg viewBox="0 0 24 24"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2-1-4-3-5-5l2-2-2-6-4 1z"/></svg><span>02-01025262754 / 02-01150884433</span></div>
+        </div>
+        <div class="office-card">
+          <div class="loc-tag">🇸🇦 SAUDI ARABIA — HEAD OFFICE</div>
+          <h4>Advanced Alpha Power Co.</h4>
+          <div class="office-line"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>3554 King Fahad Ibn Abdulaziz Saud St., Al Adamah Dist., Dammam, KSA</span></div>
+          <div class="office-line"><svg viewBox="0 0 24 24"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2-1-4-3-5-5l2-2-2-6-4 1z"/></svg><span>+966 56 862 1348 &nbsp;/&nbsp; 0567693915</span></div>
+          <div class="office-line"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg><span>info@aap-power.com</span></div>
+          <div class="office-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg><span>www.advancedalphapower.com</span></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Send an enquiry</h3>
+        <p>Tell us about your project and we'll come back with next steps.</p>
+        <form id="quoteForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+          <div class="form-row">
+            <div class="field"><label for="fname">Full name</label><input id="fname" type="text" required placeholder="Your name"></div>
+            <div class="field"><label for="fcompany">Company</label><input id="fcompany" type="text" placeholder="Company name"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="femail">Email</label><input id="femail" type="email" required placeholder="you@company.com"></div>
+            <div class="field"><label for="fphone">Phone</label><input id="fphone" type="tel" placeholder="+20 / +966 ..."></div>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label for="fservice">Interested in</label>
+            <select id="fservice">
+              <option>Cable Tray Systems</option>
+              <option>Low Voltage Panels</option>
+              <option>Fire Doors &amp; Cabinets</option>
+              <option>Industrial Racking</option>
+              <option>HVAC / Electrical / Fire Fighting Contracting (KSA)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label for="fmsg">Project details</label>
+            <textarea id="fmsg" rows="4" placeholder="Tell us about scope, location and timeline"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send enquiry</button>
+          <p class="form-note" id="formNote">We usually reply within one business day.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- FOOTER                         -->
+<!-- ============================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text"><strong>ADVANCED ALPHA</strong><span>POWER &amp; FACTORY</span></span>
+        </a>
+        <p>Electromechanical manufacturing and industrial contracting across Egypt and Saudi Arabia — from cable trays to complete MEP delivery.</p>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 17v-7"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg></a>
+          <a href="#" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2-1-4-3-5-5l2-2-2-6-4 1z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>COMPANY</h5>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#clients">Clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>PRODUCTS</h5>
+        <ul>
+          <li><a href="#products">Cable Trays</a></li>
+          <li><a href="#products">LV Panels</a></li>
+          <li><a href="#services">Fire Doors</a></li>
+          <li><a href="#services">Industrial Racking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>CONTACT</h5>
+        <ul>
+          <li><a href="mailto:info@aap-power.com">info@aap-power.com</a></li>
+          <li><a href="tel:+966568621348">+966 56 862 1348</a></li>
+          <li><a href="tel:0567693915">0567693915</a></li>
+          <li><a href="#contact">Send an enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Advanced Alpha Power. All rights reserved.</span>
+      <span class="credit">Website created by <b>Eng. Ammar Mohamed</b></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= -->
+<!-- CHAT WIDGET                     -->
+<!-- ============================= -->
+<button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+  <span class="ping"></span>
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5c-1.1 0-2.15-.2-3.11-.58L4 21l1.6-4.3A8.47 8.47 0 013.5 11.5 8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+</button>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <span class="dot"></span>
+    <div><strong>AAP Assistant</strong><span>Usually replies instantly</span></div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-body hide-scrollbar" id="chatBody">
+    <div class="msg bot">Hi 👋 I'm the AAP assistant. Ask me about cable trays, LV panels, fire doors, or our contracting services in KSA.</div>
+  </div>
+  <div class="chat-quick" id="chatQuick">
+    <button class="chip" data-q="What cable trays do you make?">Cable trays</button>
+    <button class="chip" data-q="Tell me about your LV panels">LV panels</button>
+    <button class="chip" data-q="How can I get a quote?">Get a quote</button>
+    <button class="chip" data-q="What are your contact details?">Contact info</button>
+  </div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button type="submit" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </form>
+</div>
+
+<script>
+/* =========================================================
+   NAV: mobile toggle + shrink-on-scroll shadow
+   ========================================================= */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* =========================================================
+   TABS: manufacturing / contracting
+   ========================================================= */
+document.querySelectorAll('.tabbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tabpanel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* =========================================================
+   CLIENTS MARQUEE: duplicate track for seamless loop
+   ========================================================= */
+const track = document.getElementById('clientsTrack');
+track.innerHTML += track.innerHTML;
+
+/* =========================================================
+   CONTACT FORM (demo — wire to your backend / email service)
+   ========================================================= */
+function handleFormSubmit(){
+  const note = document.getElementById('formNote');
+  note.textContent = 'Thanks — your enquiry has been noted. Our team will contact you shortly.';
+  note.style.color = '#1a7f37';
+  document.getElementById('quoteForm').reset();
+  // TODO: replace this demo handler with a real request, e.g.:
+  // fetch('/api/enquiry', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({...}) })
+}
+
+/* =========================================================
+   CHAT WIDGET
+   =========================================================
+   This ships with a lightweight built-in FAQ responder so the
+   chat works immediately with zero setup.
+
+   To connect it to a real AI (e.g. Claude), you need a small
+   backend endpoint that holds your API key — never call
+   api.anthropic.com with a key directly from this front-end
+   file, or your key will be exposed to every visitor.
+
+   Minimal backend (Node/Express) example:
+
+     app.post('/api/chat', async (req, res) => {
+       const r = await fetch('https://api.anthropic.com/v1/messages', {
+         method: 'POST',
+         headers: {
+           'x-api-key': process.env.ANTHROPIC_API_KEY,
+           'anthropic-version': '2023-06-01',
+           'content-type': 'application/json'
+         },
+         body: JSON.stringify({
+           model: 'claude-sonnet-4-6',
+           max_tokens: 500,
+           messages: req.body.messages
+         })
+       });
+       res.json(await r.json());
+     });
+
+   Then set CHAT_ENDPOINT below to '/api/chat' and set
+   USE_BACKEND to true.
+*/
+const USE_BACKEND = false;
+const CHAT_ENDPOINT = '/api/chat';
+
+const chatToggle = document.getElementById('chatToggle');
+const chatPanel = document.getElementById('chatPanel');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const chatQuick = document.getElementById('chatQuick');
+
+chatToggle.addEventListener('click', () => {
+  chatPanel.classList.toggle('open');
+  if (chatPanel.classList.contains('open')) chatInput.focus();
+});
+chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
+
+function addMessage(text, who){
+  const div = document.createElement('div');
+  div.className = 'msg ' + who;
+  div.textContent = text;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+chatQuick.addEventListener('click', (e) => {
+  const q = e.target.dataset.q;
+  if (!q) return;
+  chatInput.value = q;
+  chatForm.dispatchEvent(new Event('submit'));
+});
+
+chatForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  if (!text) return;
+  addMessage(text, 'user');
+  chatInput.value = '';
+
+  if (USE_BACKEND){
+    try{
+      const res = await fetch(CHAT_ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ messages:[{ role:'user', content:text }] })
+      });
+      const data = await res.json();
+      const reply = data?.content?.[0]?.text || "Sorry, I couldn't get a response right now.";
+      addMessage(reply, 'bot');
+    }catch(err){
+      addMessage("I couldn't reach the assistant service. Please try again shortly.", 'bot');
+    }
+    return;
+  }
+
+  // Built-in FAQ responder (no backend required)
+  setTimeout(() => addMessage(localAnswer(text), 'bot'), 380);
+});
+
+function localAnswer(q){
+  const t = q.toLowerCase();
+  if (t.includes('tray') || t.includes('ladder') || t.includes('duct') || t.includes('perforated'))
+    return "We manufacture ladder, perforated and duct-type cable trays to IEC 61537, in aluminium, steel and stainless steel — lengths of 2000/2500/3000mm and widths from 100 to 900mm.";
+  if (t.includes('panel') || t.includes('lv') || t.includes('switchboard'))
+    return "Our LV panel range covers FT floor-standing (up to 4000A, 70KA), FW wall-mounted (up to 630A) and FF flush-mounted consumer units (up to 200A), IP54, in partnership with Schneider Electric and ABB.";
+  if (t.includes('door'))
+    return "Our fire-rated emergency doors withstand fire for 120 minutes, are water and sound insulated, TSE certified, with a 1.5mm door sheet and 2mm frame.";
+  if (t.includes('rack') || t.includes('shelf') || t.includes('storage'))
+    return "We produce heavy-duty upright frames (2m–6m), pallet rack beams and mesh storage shelving for warehousing and industrial storage.";
+  if (t.includes('hvac') || t.includes('electrical') || t.includes('fire fighting') || t.includes('plumb') || t.includes('ksa') || t.includes('saudi') || t.includes('contract'))
+    return "In Saudi Arabia our contracting division delivers HVAC, electrical, fire fighting, plumbing and low current systems — design through commissioning and maintenance — for commercial, residential, healthcare, hospitality and industrial projects.";
+  if (t.includes('quote') || t.includes('price') || t.includes('cost'))
+    return "The fastest way is the enquiry form below the chat, or call +966 56 862 1348 (KSA) / 02-01025262754 (Egypt). Tell us the product or service and rough quantities and we'll come back with pricing.";
+  if (t.includes('contact') || t.includes('phone') || t.includes('email') || t.includes('address'))
+    return "Egypt Factory: Part 15, Block 33, Fourth Industrial Zone, Borg El Arab, Alexandria — 02-01025262754. KSA Office: Al Adamah Dist., Dammam — +966 56 862 1348, info@aap-power.com.";
+  return "Thanks for the question — I can help with cable trays, LV panels, fire doors, racking, or our HVAC/electrical/fire-fighting contracting in KSA. You can also use the enquiry form and our team will follow up directly.";
+}
+</script>
+</body>
+</html>
